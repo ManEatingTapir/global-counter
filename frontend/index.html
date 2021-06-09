@@ -5,3 +5,10 @@
         socket.emit('my event', {data: 'I\'m connected!'});
     });
 </script>
+<button>Click me!</button>
+<script>
+    let button = document.querySelector('button');
+    button.addEventListener('click', () => {
+        socket.emit('button', {click: 'true'});
+    });
+</script>
