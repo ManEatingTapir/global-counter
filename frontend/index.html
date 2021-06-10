@@ -5,20 +5,14 @@
 <script type="text/javascript" charset="utf-8">
     var socket = io("http://127.0.0.1:5000");
     let span = document.querySelector('span');
-    socket.on('connect', () => {
-        socket.emit('counter update');
-    });
-    socket.on('update', data => {
-        span.textContent = data;
-    });
-</script>
-
-<script>
     let button = document.querySelector('button');
-    button.addEventListener('click', () => {
-        socket.emit('button', {click: 'true'});
+    socket.on('connect', () => {
+        socket.emit('counter update', false);
     });
-    socket.on('increment', (data) => {
+    socket.on('update', (data) => {
         span.textContent = data;
+    });
+    button.addEventListener('click', () => {
+        socket.emit('counter update', true);
     });
 </script>
