@@ -1,6 +1,6 @@
 # global-counter
 
-A quick project I'm developping with the Tapirus Primus to get myself in the groove and make an actual project.
+A quick project I'm developping with Espequair to start getting my feet with making actual apps (even small ones).
 
 ## Goals
 On June 27th, have a simple website where you have a button and a counter.
