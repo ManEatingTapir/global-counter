@@ -7,13 +7,13 @@ import { io } from 'socket.io-client';
 })
 export class CounterDisplayComponent implements OnInit {
   counter: any;
+  socket = io('http://localhost:5000');
   constructor() { 
-    let socket = io('http://localhost:5000');
-    socket.on('connect', () => {
-      socket.emit('counter update', false);
+    this.socket.on('connect', () => {
+      this.socket.emit('counter update', false);
     });
 
-    socket.on('update', data => {
+    this.socket.on('update', data => {
       this.counter = data;
     });
 
