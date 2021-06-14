@@ -18,7 +18,9 @@ export class CounterDisplayComponent implements OnInit {
     });
 
   }
-
+  clickEvent() {
+    this.socket.emit('counter update', true);
+  }
   ngOnInit(): void {
   }
 
