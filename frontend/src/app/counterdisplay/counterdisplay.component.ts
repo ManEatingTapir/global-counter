@@ -6,8 +6,18 @@ import { io } from 'socket.io-client';
   styleUrls: ['./counterdisplay.component.css']
 })
 export class CounterDisplayComponent implements OnInit {
-  counter = 0;
-  constructor() { }
+  counter: any;
+  constructor() { 
+    let socket = io('http://localhost:5000');
+    socket.on('connect', () => {
+      socket.emit('counter update', false);
+    });
+
+    socket.on('update', data => {
+      this.counter = data;
+    });
+
+  }
 
   ngOnInit(): void {
   }
